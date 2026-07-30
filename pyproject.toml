@@ -1,0 +1,28 @@
+[project]
+name = "ocr-app-comparaison"
+version = "0.1.0"
+description = "Comparaison de moteurs OCR — Tesseract vs EasyOCR vs TrOCR"
+requires-python = ">=3.10"
+dependencies = [
+    "easyocr>=1.7.1",
+    "numpy>=1.26",
+    "opencv-python-headless>=4.9.0.80",
+    "pandas>=2.2",
+    "pdf2image>=1.17.0",
+    "pillow>=10.2",
+    "pytesseract>=0.3.10",
+    "sentencepiece>=0.2.0",
+    "streamlit>=1.32",
+    "torch>=2.2",
+    "torchvision>=0.28.0",
+    "transformers>=4.38",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchvision = { index = "pytorch-cpu" }

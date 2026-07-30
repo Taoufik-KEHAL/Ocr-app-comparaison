@@ -43,7 +43,9 @@ approches OCR aux architectures très différentes :
 │   ├── tesseract_engine.py      # Wrapper pytesseract
 │   ├── easyocr_engine.py        # Wrapper easyocr (mis en cache via st.cache_resource)
 │   └── trocr_engine.py          # Wrapper transformers (VisionEncoderDecoderModel + TrOCRProcessor)
-├── requirements.txt
+├── pyproject.toml                # Dépendances du projet (géré avec uv)
+├── uv.lock                       # Lockfile uv (versions exactes résolues)
+├── requirements.txt              # Export généré pour pip / Streamlit Cloud
 ├── packages.txt                 # Dépendances système (pour déploiement Streamlit Cloud)
 ├── docs/screenshots/
 └── README.md
@@ -78,15 +80,19 @@ puis ajouter les deux au `PATH`.
 
 ### 2. Environnement Python
 
-Python 3.10+ recommandé.
+Python 3.10+ recommandé. Le projet est géré avec
+[**uv**](https://docs.astral.sh/uv/) (dépendances déclarées dans
+`pyproject.toml`, verrouillées dans `uv.lock`).
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate   # sous Windows : .venv\Scripts\activate
-
-pip install --upgrade pip
-pip install -r requirements.txt
+uv sync
 ```
+
+Cette commande crée automatiquement un environnement virtuel `.venv/` et y
+installe toutes les dépendances aux versions exactes du lockfile. `torch` et
+`torchvision` sont résolus depuis l'index CPU officiel de PyTorch
+(`https://download.pytorch.org/whl/cpu`), ce qui évite de télécharger les
+paquets CUDA inutiles sur une machine sans GPU.
 
 > **Note :** `torch` et `easyocr` représentent un téléchargement conséquent
 > (plusieurs centaines de Mo). Les modèles EasyOCR et TrOCR sont eux-mêmes
@@ -95,9 +101,21 @@ pip install -r requirements.txt
 > `~/.cache/huggingface`) — une connexion internet est donc nécessaire la
 > première fois.
 
+Sans uv (pip classique), un `requirements.txt` équivalent est fourni,
+régénéré depuis le lockfile via
+`uv export --format requirements-txt --no-hashes -o requirements.txt` :
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate   # sous Windows : .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ### 3. Lancement
 
 ```bash
+uv run streamlit run app.py
+# ou, une fois l'environnement activé :
 streamlit run app.py
 ```
 
