@@ -1,0 +1,32 @@
+# Environnements virtuels
+venv/
+.venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+
+# Caches de modèles téléchargés (EasyOCR, HuggingFace/TrOCR)
+.EasyOCR/
+.cache/
+~/.cache/
+huggingface/
+*.pth
+*.bin
+*.safetensors
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Fichiers de l'IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Fichiers temporaires de test
+tmp/
