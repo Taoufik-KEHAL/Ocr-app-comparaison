@@ -4,9 +4,14 @@ Application **Streamlit** permettant de comparer trois architectures de
 reconnaissance optique de caractères (OCR) sur un même document uploadé par
 l'utilisateur.
 
-Ce projet accompagne un rapport académique **(Master 1 SDIA, module Computer
-Vision)** dont l'objectif est d'étudier et de comparer expérimentalement trois
-approches OCR aux architectures très différentes :
+L'objectif est d'étudier et de comparer expérimentalement trois approches OCR
+aux architectures très différentes :
+
+> **Méthodologie :** ce projet a été développé avec l'assistance d'un outil
+> d'IA (Claude Code) pour l'implémentation, au même titre que d'autres outils
+> modernes (IDE, autocomplétion, documentation en ligne). La conception, les
+> choix d'architecture OCR, l'analyse comparative et la compréhension du code
+> restent le travail de l'auteur.
 
 | Moteur | Architecture | Principe |
 |---|---|---|
@@ -156,9 +161,3 @@ L'application est accessible sur `http://localhost:8501`.
   affichent cette métrique.
 - Les performances (temps d'exécution) mesurées dépendent fortement du
   matériel (CPU vs GPU) : l'application tourne par défaut sur CPU.
-
-## Contexte académique
-
-Projet réalisé dans le cadre du **Master 1 SDIA — module Computer Vision**,
-pour illustrer et comparer expérimentalement trois familles d'architectures
-OCR (moteur historique LSTM, CRNN, Transformer) sur des documents réels.

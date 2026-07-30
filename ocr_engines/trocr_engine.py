@@ -8,7 +8,7 @@ Deux variantes pré-entraînées sont proposées :
 TrOCR est conçu à l'origine pour reconnaître UNE ligne de texte à la fois
 (contrairement à Tesseract/EasyOCR qui gèrent nativement une page entière).
 Sur un document multi-lignes, le résultat peut donc être partiel : c'est un
-point de comparaison intéressant à souligner dans le rapport académique.
+point de comparaison intéressant entre les trois moteurs.
 """
 
 import time

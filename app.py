@@ -1,7 +1,6 @@
 """
 Application Streamlit de comparaison de moteurs OCR.
 
-Projet académique - Master 1 SDIA, module Computer Vision.
 Compare trois architectures de reconnaissance de caractères sur un même
 document uploadé par l'utilisateur :
     - Tesseract   : moteur LSTM (classique, open-source, Google)
@@ -75,8 +74,7 @@ def load_document(uploaded_file) -> Image.Image:
 st.title("🔎 Comparaison de moteurs OCR")
 st.markdown(
     """
-Ce projet accompagne un rapport académique **(M1-SDIA, module Computer Vision)**
-comparant trois architectures OCR :
+Cette application compare trois architectures OCR :
 
 | Moteur | Architecture |
 |---|---|
@@ -235,6 +233,3 @@ if st.button("🚀 Lancer la reconnaissance", type="primary"):
             st.bar_chart(df.set_index("Moteur")["Temps (s)"])
         else:
             st.warning("Aucun moteur n'a produit de résultat exploitable.")
-
-st.sidebar.markdown("---")
-st.sidebar.caption("Projet académique M1-SDIA · Module Computer Vision")
